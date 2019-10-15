@@ -34,9 +34,7 @@ while player1.life_points > 0 && player2.life_points >0
 	    player2.attacks(player1)
     end
 
-    #SI JOSIANE ET JOSE SONT ENCORE EN VIE, LA BOUCLE RECOMMENCE EN APPUYANT SUR ENTRER
-    puts "Appuyer sur ENTRER pour continuer le combat"
-    gets.chomp
+    #SI JOSIANE ET JOSE SONT ENCORE EN VIE, LA BOUCLE RECOMMENCE
 end
 
 binding pry
