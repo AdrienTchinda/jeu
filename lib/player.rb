@@ -22,6 +22,7 @@ class Player
     damage = damage.to_i
     @life_points = @life_points - damage
     if @life_points <= 0
+      @life_points = 0
       puts "le joueur #{names} a été tué"
     end
   end
