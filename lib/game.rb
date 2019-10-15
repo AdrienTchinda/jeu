@@ -1,28 +1,11 @@
-class User
-  attr_accessor :age, :email
-  @@all_users = []
 
-  def initialize(email, age)
-    @email = email
-    @age = age
-    @@all_users << self
-  end
+class Game
+	attr_accessor :human_player, :enemies
 
-  def self.all
-    @@all_users
-  end
-
-  def self.find_by_email(email)
-    @@all_users.each do |user|
-
-      if user.email == email
-        return user
-      end
-
+    def initialize(names)
+      @names = names
+      @life_points = 10
+      @enemies = []
     end
-
-    puts "aucun utilisateur n'a cet email"
-    return false
-  end
 
 end

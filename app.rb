@@ -1,16 +1,42 @@
-# lignes très pratiques qui appellent les gems du Gemfile. On verra plus tard comment s'en servir ;) - ça évite juste les "require" partout
+#lignes qui appellent les gems du Gemfile.
 require 'bundler'
 Bundler.require
 
-# lignes qui appellent les fichiers lib/user.rb et lib/event.rb
-# comme ça, tu peux faire User.new dans ce fichier d'application. Top.
+# lignes qui appellent les fichiers lib/player.rb et lib/game.rb
 require_relative 'lib/player'
 require_relative 'lib/game'
 
-	player1 = Player.new("Josiane")
+#INITIALISATION DES JOUEURS
 
-puts player1.names
+player1 = Player.new("Josiane")
+player2 = Player.new("José")
+
+#BOUCLE DU COMBAT
+
+while player1.life_points > 0 && player2.life_points >0 
+
+	#AFFICHE LE NOMBRE DE VIES DU JOUEUR
+	puts "Voici l'état du joueur 1 :" 
+    puts "#{player1.show_state}"
+    puts "Voici l'état du joueur 2 :"
+    puts "#{player2.show_state}"
+    puts "Passons à la phase d'attaque :"
+
+    #JOSIANE ATTAQUE JOSE
+    player1.attacks(player2)
+
+    #SI JOSIANE N A PLUS DE VIE, LA BOUCLE S ARRETE
+    if player1.life_points <= 0
+        break
+
+    #SINON JOSE ATTAQUE JOSIANE
+	else
+	    player2.attacks(player1)
+    end
+
+    #SI JOSIANE ET JOSE SONT ENCORE EN VIE, LA BOUCLE RECOMMENCE EN APPUYANT SUR ENTRER
+    puts "Appuyer sur ENTRER pour continuer le combat"
+    gets.chomp
+end
 
 binding pry
-# Maintenant c'est open bar pour tester ton application. Tous les fichiers importants sont chargés
-# Tu peux faire User.new, Event.new, binding.pry, User.all, etc.
