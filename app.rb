@@ -26,7 +26,7 @@ while player1.life_points > 0 && player2.life_points >0
     player1.attacks(player2)
 
     #SI JOSIANE N A PLUS DE VIE, LA BOUCLE S ARRETE
-    if player1.life_points <= 0
+    if player1.life_points <= 0 || player2.life_points <= 0
         break
 
     #SINON JOSE ATTAQUE JOSIANE
